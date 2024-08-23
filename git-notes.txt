@@ -1,3 +1,4 @@
+GIT COMMANDS : 
 git init - to initialize a repository in the present directory
 git config --list - to list all the config details of your git 
 git config --global <config_name> <information> - used to add / edit the config details
@@ -8,3 +9,15 @@ git reset . - resets all the staged files in the current directory to untracked 
 git commit -m <message> - used to finalize the files added to the staging area to the repository
 git log - used to look up past activites related to commits 
 git commit -a -m <message> - used to add files to staging and commit them at the same time
+git remote - returns the remote repositories linked to the local project
+git remote add origin <url> - used to link a remote repository to the local project
+git push origin main -u - pushes the commited files to the remote repository
+git fetch - used to fetch the latest changes to code in the remote repositories
+git merge <branch_name> - to merge the specified branch on top of the main branch
+ 
+
+GIT NOTES : 
+=> .gitignore file is used to contain all the names of files which are to be ignored while adding or committing
+=> -u flag is used to set origin to upstream remote
+=> when you make changes to the repo directly from repo, it becomes one commit ahead of local branch
+   in order to get the changes you need to fetch it from the repo and then merge the remote/main branch with local main branch
