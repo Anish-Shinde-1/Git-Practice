@@ -14,10 +14,31 @@ git remote add origin <url> - used to link a remote repository to the local proj
 git push origin main -u - pushes the commited files to the remote repository
 git fetch - used to fetch the latest changes to code in the remote repositories
 git merge <branch_name> - to merge the specified branch on top of the main branch
- 
+git pull origin main - used to fetch and merge all at once
+git clone <url> <custom_directory> - used to clone a git remote repository on to your local system
+git branch - lists out all the branches
+git branch <branch_name> - used to create a new branch
+git branch -d <branch_name> - used to safely delete a branch
+git branch -D <branch_name> - used to force delete a branch 
+git checkout <branch_name> - used to switch to the specified branch
+git checkout -b <branch_name> - used to create a new branch and switch to it at the same time
+git checkout - - used to switch back to the previous branch 
+git merge --abort - used to exit the merge stage
+git diff - used to find out the diff between the two commits
+
 
 GIT NOTES : 
 => .gitignore file is used to contain all the names of files which are to be ignored while adding or committing
 => -u flag is used to set origin to upstream remote
 => when you make changes to the repo directly from repo, it becomes one commit ahead of local branch
    in order to get the changes you need to fetch it from the repo and then merge the remote/main branch with local main branch
+=> git pull will give error if you have uncommited changes in the local repository at that moment
+   can be taken care of using the stash command
+=> branch allows you to create an alternate space to alter and create code 
+=> before merging branches are up to date with the commits
+=> if two branches are working on the same line of code, then it may cause a merge conflict
+   this will make you either choose between either, continue with both or exit the merge command using --abort flag
+
+
+
+
