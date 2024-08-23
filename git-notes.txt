@@ -1,0 +1,10 @@
+git init - to initialize a repository in the present directory
+git config --list - to list all the config details of your git 
+git config --global <config_name> <information> - used to add / edit the config details
+git status - used to inspect the current state of the repository such as untracked filellls
+git add . - adds files to the staging area from the current directory
+git add <file_name> - adds specified file to the staging area
+git reset . - resets all the staged files in the current directory to untracked files
+git commit -m <message> - used to finalize the files added to the staging area to the repository
+git log - used to look up past activites related to commits 
+git commit -a -m <message> - used to add files to staging and commit them at the same time
