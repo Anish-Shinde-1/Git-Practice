@@ -25,7 +25,19 @@ git checkout -b <branch_name> - used to create a new branch and switch to it at 
 git checkout - - used to switch back to the previous branch 
 git merge --abort - used to exit the merge stage
 git diff - used to find out the diff between the two commits
-
+git reset - used to rollback the files from staging area to untracked status
+git reset <desired_commit_id> - moves us back to the previous commit specified but doesnt delete anyfiles added after the commit
+git reset --hard <desired_commit_id> - moves us back to the specified commit and deletes all the files added after that commit
+git revert <commit_id> - doesnt reset to the commit specified but instead recommits the specified commit, still keeping the commit history intact
+git commit --amend -m <message> - used to amend the previous commit's message
+git commit --amend --no-edit - used to add an extra unstaged file to the previous commit, make sure to stage the file first before exectuting this command
+git stash - used to keep track of the staged files in a stack but remove them from staging
+git stash pop - used to recall the files tracked by stash to the main staging area
+git stash save <name> - to give a name to the stash in order to keep the stashes organised
+git stash list - used to list all the present stashes present in the stack along with their indexes
+git stash apply <stash_index> - used to pop a specific stash with the given index
+git rebase main - alternative to the merge, but rewrites history, used keep a branch up to date with a master branch 
+git rebase main --interactive - opens an interactive editor to modify commits made to branch and can use the squash keyword to combine commits to make commit history more concise
 
 GIT NOTES : 
 => .gitignore file is used to contain all the names of files which are to be ignored while adding or committing
@@ -38,7 +50,9 @@ GIT NOTES :
 => before merging branches are up to date with the commits
 => if two branches are working on the same line of code, then it may cause a merge conflict
    this will make you either choose between either, continue with both or exit the merge command using --abort flag
-
-
+=> if you fork a repo on github itll copy the repository to your main account while stil maintianing the link to the original repository
+   the original repo is called upstream repository, after you work on a repository you can send a pull request to merge your code to the orginal repository
+=> dont do reset if the code is already pushed to github 
+=> revert is a better option while working in a group
 
 
