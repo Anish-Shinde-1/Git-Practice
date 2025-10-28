@@ -1,35 +1,46 @@
 pipeline {
-  agent any
-  stages {
-    stage('Checkout') {
-      steps {
-        checkout scm
-      }
-    }
-    stage('Build') {
-      steps {
-        sh 'mvn clean package -DskipTests'
-      }
-    }
-    stage('Archive') {
-      steps {
-        archiveArtifacts artifacts: 'target/*.jar, target/*.war', fingerprint: true
-      }
-    }
-    stage('Deploy') {
-      steps {
-        sh 'cp target/*.war /opt/tomcat/webapps/ || true'
-        sh 'cp target/*.jar /opt/tomcat/webapps/ || true'
-      }
-    }
-  }
-  post {
-    success {
-      echo 'Pipeline completed successfully'
-    }
-    failure {
-      echo 'Pipeline failed'
-    }
-  }
-}
+    agent any
 
+    tools {
+        maven 'MAVEN_HOME' // must match your Jenkins Maven name
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                echo 'Pulling latest code from GitHub...'
+                git 'https://github.com/Anish-Shinde-1/Git-Practice.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Running Maven clean install...'
+                bat 'mvn clean install'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'No real tests — simulating test stage.'
+                echo '✅ All dummy tests passed!'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Simulating deployment to Tomcat...'
+                echo '✅ Deployment successful (simulated).'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo '🎉 Pipeline completed successfully!'
+        }
+        failure {
+            echo '❌ Pipeline failed. Check console logs.'
+        }
+    }
+}
